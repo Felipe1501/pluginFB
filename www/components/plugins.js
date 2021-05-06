@@ -43,13 +43,29 @@ $(document).on("click", "#vibrar", function(){
     navigator.vibrate(4000);
 });
 
-$(document).on("click", "#erro", function(){
-    function successCallback() {
-    console.log("Successfully dismissed previously opened dialog.");
+function mapaMostrar(lat, long){
+   L.mapquest.key = 'Mm3wHgo001AGGdeS5g1cfbMk2R7PSgJO';
+
+        var map = L.mapquest.map('map', {
+          center: [lat, long],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 16
+        });
+
+        map.addControl(L.mapquest.control())
 }
 
-function errorCallback(error) {
-    console.log("Failed to dismiss previously opened dialog: " + error);
-}
+$(document).on("click", "#local", function(){
+ var onSuccess = function(position) {
+   mapaMostrar(position.coords.latitude, position.coords.longitude)
+        
+  };
 
+  
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
