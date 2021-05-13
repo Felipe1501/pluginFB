@@ -44,21 +44,21 @@ $(document).on("click", "#vibrar", function(){
 });
 
 function mapaMostrar(lat, long){
-   L.mapquest.key = 'Mm3wHgo001AGGdeS5g1cfbMk2R7PSgJO';
+   L.mapquest.key = 'lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24';
 
         var map = L.mapquest.map('map', {
           center: [lat, long],
           layers: L.mapquest.tileLayer('map'),
-          zoom: 16
+          zoom: 12
         });
 
-        map.addControl(L.mapquest.control())
+        map.addControl(L.mapquest.control());
 }
 
 $(document).on("click", "#local", function(){
- var onSuccess = function(position) {
+    var onSuccess = function(position) {
    mapaMostrar(position.coords.latitude, position.coords.longitude)
-        
+     alert(position.coords.latitude);
   };
 
   
