@@ -4,7 +4,7 @@ $(document).on("click", "#alerta", function(){
     function retorno(){
 
     }
-    navigator.notification.alert("Minha Mensagem", retorno, "Aviso!", "Aceito");
+    navigator.notification.alert("O Palmeiras não tem Mundial!", retorno, "Aviso Urgente!", "Concordo");
 });
 
 $(document).on("click", "#confirm", function(){
@@ -57,8 +57,7 @@ function mapaMostrar(lat, long){
 
 $(document).on("click", "#local", function(){
  var onSuccess = function(position) {
-   mapaMostrar(position.coords.latitude, position.coords.longitude)
-        
+   mapaMostrar(position.coords.latitude, position.coords.longitude)     
   };
 
   
@@ -69,3 +68,4 @@ $(document).on("click", "#local", function(){
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
+
