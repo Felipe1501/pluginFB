@@ -8,3 +8,9 @@ button{
   width: 100%;
   height: 300px;
 }
+
+body{
+  background-color: azure;
+  text-align: center;
+}
+
